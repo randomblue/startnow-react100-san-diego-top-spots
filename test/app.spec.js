@@ -5,7 +5,7 @@ const Nightmare = require('nightmare');
 const expect = require('chai').expect;
 const topspots = require('./topspots.json');
 
-const nightmareTimeout = 6500;
+const nightmareTimeout = 25000;
 
 let nightmare;
 
@@ -28,7 +28,7 @@ describe('top spots', function () {
     nightmare
     .goto(url)
     .wait('div.well')
-    .evaluate(() => document.querySelectorAll('div.well').length)
+    .evaluate(() => document.querySelectorAll('.well').length)
     .end()
     .then((numberOfTodoComponents) => {
       expect(numberOfTodoComponents).to.equal(30);
